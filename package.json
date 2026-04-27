@@ -1,0 +1,233 @@
+{
+  "name": "symlynx",
+  "displayName": "SymLynx",
+  "description": "Create, manage, and navigate symbolic links without ever leaving VS Code at the speed of a Lynx.",
+  "version": "0.0.1",
+  "publisher": "teddyherryanto",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1a3a4a",
+    "theme": "dark"
+  },
+  "pricing": "Free",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thatnavguy/SymLynx"
+  },
+  "bugs": {
+    "url": "https://github.com/thatnavguy/SymLynx/issues"
+  },
+  "homepage": "https://github.com/thatnavguy/SymLynx#readme",
+  "engines": {
+    "vscode": "^1.116.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "symlink",
+    "symbolic link",
+    "hard link",
+    "junction",
+    "file management"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "symlynx.createSymlinkHere",
+        "title": "Create Symlink Here",
+        "category": "SymLynx"
+      },
+      {
+        "command": "symlynx.createSymlinkTo",
+        "title": "Create Symlink to This",
+        "category": "SymLynx"
+      },
+      {
+        "command": "symlynx.deleteSymlink",
+        "title": "Delete",
+        "category": "SymLynx",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "symlynx.fixBrokenTarget",
+        "title": "Fix Broken Target…",
+        "category": "SymLynx",
+        "icon": "$(wrench)"
+      },
+      {
+        "command": "symlynx.renameLink",
+        "title": "Rename…",
+        "category": "SymLynx",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "symlynx.revealTarget",
+        "title": "Reveal Target",
+        "category": "SymLynx",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "symlynx.revealOriginal",
+        "title": "Reveal Original",
+        "category": "SymLynx",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "symlynx.revealTargetInOS",
+        "title": "Reveal Target in File Explorer",
+        "category": "SymLynx"
+      },
+      {
+        "command": "symlynx.revealInExplorer",
+        "title": "Reveal in Explorer",
+        "category": "SymLynx"
+      },
+      {
+        "command": "symlynx.exportLinks",
+        "title": "Export Links…",
+        "category": "SymLynx",
+        "icon": "$(cloud-upload)"
+      },
+      {
+        "command": "symlynx.importLinks",
+        "title": "Import Links…",
+        "category": "SymLynx",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "symlynx.refresh",
+        "title": "Refresh",
+        "category": "SymLynx",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "symlynx.createSymlinkHere",
+          "when": "explorerResourceIsFolder",
+          "group": "7_modification@50"
+        },
+        {
+          "command": "symlynx.createSymlinkTo",
+          "group": "7_modification@51"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "symlynx.importLinks",
+          "when": "view == symlynx.symlinkExplorer",
+          "group": "navigation@1"
+        },
+        {
+          "command": "symlynx.exportLinks",
+          "when": "view == symlynx.symlinkExplorer",
+          "group": "navigation@2"
+        },
+        {
+          "command": "symlynx.refresh",
+          "when": "view == symlynx.symlinkExplorer",
+          "group": "navigation@3"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "symlynx.revealTarget",
+          "when": "view == symlynx.symlinkExplorer && viewItem == symlink",
+          "group": "inline@1"
+        },
+        {
+          "command": "symlynx.revealOriginal",
+          "when": "view == symlynx.symlinkExplorer && viewItem == hardlink",
+          "group": "inline@1"
+        },
+        {
+          "command": "symlynx.fixBrokenTarget",
+          "when": "view == symlynx.symlinkExplorer && viewItem == symlinkBroken",
+          "group": "inline@1"
+        },
+        {
+          "command": "symlynx.renameLink",
+          "when": "view == symlynx.symlinkExplorer && (viewItem == symlink || viewItem == symlinkBroken || viewItem == hardlink)",
+          "group": "inline@2"
+        },
+        {
+          "command": "symlynx.deleteSymlink",
+          "when": "view == symlynx.symlinkExplorer && (viewItem == symlink || viewItem == symlinkBroken || viewItem == hardlink)",
+          "group": "inline@3"
+        },
+        {
+          "command": "symlynx.revealInExplorer",
+          "when": "view == symlynx.symlinkExplorer && (viewItem == symlink || viewItem == symlinkBroken || viewItem == hardlink)",
+          "group": "navigation@1"
+        },
+        {
+          "command": "symlynx.revealTarget",
+          "when": "view == symlynx.symlinkExplorer && viewItem == symlink",
+          "group": "navigation@2"
+        },
+        {
+          "command": "symlynx.revealOriginal",
+          "when": "view == symlynx.symlinkExplorer && viewItem == hardlink",
+          "group": "navigation@2"
+        },
+        {
+          "command": "symlynx.revealTargetInOS",
+          "when": "view == symlynx.symlinkExplorer && viewItem == symlink",
+          "group": "navigation@3"
+        },
+        {
+          "command": "symlynx.fixBrokenTarget",
+          "when": "view == symlynx.symlinkExplorer && viewItem == symlinkBroken",
+          "group": "modification@1"
+        },
+        {
+          "command": "symlynx.renameLink",
+          "when": "view == symlynx.symlinkExplorer && (viewItem == symlink || viewItem == symlinkBroken || viewItem == hardlink)",
+          "group": "modification@2"
+        },
+        {
+          "command": "symlynx.deleteSymlink",
+          "when": "view == symlynx.symlinkExplorer && (viewItem == symlink || viewItem == symlinkBroken || viewItem == hardlink)",
+          "group": "modification@3"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "symlynx.symlinkExplorer",
+          "name": "Symbolic Links",
+          "contextualTitle": "SymLynx"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.116.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.9.1",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  }
+}
