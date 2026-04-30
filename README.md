@@ -2,6 +2,8 @@
 
 Create, manage, and navigate symbolic links without ever leaving VS Code — at the speed of a Lynx.
 
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/TeddyHerryanto.symlynx?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=TeddyHerryanto.symlynx)
+
 ---
 
 ## Features
