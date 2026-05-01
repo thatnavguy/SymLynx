@@ -6,6 +6,41 @@ Create, manage, and navigate symbolic links without ever leaving VS Code — at 
 
 ---
 
+## Use Cases
+
+### Centralise your AI agent configuration
+
+![SymLynx Agents](image/SymLynxAgents.gif)
+
+AI agents read instruction files (`AGENTS.md`, etc.) from your project. Keeping a separate copy in every repo means they drift out of sync the moment you update one.
+
+With SymLynx you can maintain a **single source of truth**:
+
+1. Store your agent files in a dedicated folder, e.g. `~/ai-agents/`
+2. For each project repo, right-click in Explorer → **Create Symlink Here** → point it at the folder in `~/ai-agents/`
+3. Every project now shares the live folder — edit once, all repos pick it up instantly.
+
+```
+~/ai-agents/         ← one folder to rule them all
+  Coder.md
+  Code-Reviewer.md
+
+~/projects/
+  .github/agents
+    Coder.md          →  ~/ai-agents/Coder.md   (symlink)
+    Code-Reviewer.md  →  ~/ai-agents/Code-Reviewer.md   (symlink)
+  repo-b/
+    Coder.md          →  ~/ai-agents/Coder.md   (symlink)
+    Code-Reviewer.md  →  ~/ai-agents/Code-Reviewer.md   (symlink)
+  repo-c/
+    Coder.md          →  ~/ai-agents/Coder.md   (symlink)
+    Code-Reviewer.md  →  ~/ai-agents/Code-Reviewer.md   (symlink)
+```
+
+Use **Export / Import** to snapshot or replicate this link layout across machines.
+
+---
+
 ## Features
 
 ### Symbolic Links panel
@@ -22,7 +57,7 @@ Two ways, depending on which end you know first:
 | Method | How |
 |---|---|
 | **Create Symlink Here** | Right-click a **folder** in Explorer → pick the target file or folder |
-| **Create Symlink to This** | Right-click any **file or folder** → pick where to put the symlink |
+| **Create Symlink from This** | Right-click any **file or folder** → pick where to put the symlink |
 
 Both methods ask for a name (defaulting to the target's filename) before creating.
 
@@ -97,7 +132,7 @@ Share your link setup across projects or team members.
 All commands are available via `Ctrl+Shift+P` (or `Cmd+Shift+P`) under the **SymLynx** category:
 
 - `SymLynx: Create Symlink Here`
-- `SymLynx: Create Symlink to This`
+- `SymLynx: Create Symlink from This`
 - `SymLynx: Fix Broken Target…`
 - `SymLynx: Rename…`
 - `SymLynx: Export Links…`

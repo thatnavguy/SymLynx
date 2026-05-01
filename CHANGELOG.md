@@ -2,6 +2,12 @@
 
 All notable changes to SymLynx are documented here.
 
+## [0.0.2] — 2026-05-01
+
+### Changed
+
+- Renamed context menu command *Create Symlink to This* → *Create Symlink from This* for clarity
+
 ## [0.0.1] — 2026-04-28
 
 ### Added
