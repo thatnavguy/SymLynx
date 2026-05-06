@@ -2,6 +2,12 @@
 
 All notable changes to SymLynx are documented here.
 
+## [0.0.3] — 2026-05-06
+
+### Changed
+
+- Documentation: added screenshots illustrating the *Create Symlink Here* flow and the resulting custom agent layout
+
 ## [0.0.2] — 2026-05-01
 
 ### Changed

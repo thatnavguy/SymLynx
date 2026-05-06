@@ -2,7 +2,7 @@
   "name": "symlynx",
   "displayName": "SymLynx",
   "description": "Create, manage, and navigate symbolic links without ever leaving VS Code at the speed of a Lynx.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "teddyherryanto",
   "license": "MIT",
   "icon": "icon.png",

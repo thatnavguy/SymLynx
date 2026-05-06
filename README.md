@@ -61,6 +61,12 @@ Two ways, depending on which end you know first:
 
 Both methods ask for a name (defaulting to the target's filename) before creating.
 
+![Create Symlink Here](image/CreateSymlinkHere.png)
+
+![Select Target](image/SelectSymlinkTarget.png)
+
+![Custom Agent with Symlink](image/CustomAgentwithSymlink.png)
+
 ### Hard links (Windows fallback)
 If creating a file symlink fails on Windows due to missing Developer Mode, SymLynx offers to create a **hard link** instead — provided both files are on the same drive. Hard links require no elevated privileges and are tracked in the panel with an orange icon.
 
