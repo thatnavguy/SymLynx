@@ -2,6 +2,13 @@
 
 All notable changes to SymLynx are documented here.
 
+## [0.0.4] — 2026-05-12
+
+### Changed
+
+- Removed automatic panel refresh on file system events — the panel now only refreshes on workspace open, manual refresh, or after a SymLynx command (create, fix, rename, import)
+- Eliminated redundant tree re-render that occurred on every scan, reducing CPU usage on large workspaces
+
 ## [0.0.3] — 2026-05-06
 
 ### Changed
@@ -31,7 +38,7 @@ All notable changes to SymLynx are documented here.
 - Symlinks shown with blue arrow icon; hard links with orange link icon; broken symlinks with yellow warning icon
 - Inline action buttons per item: Reveal Target / Reveal Original, Fix (broken only), Rename, Delete
 - Right-click context menu with full navigation and management options
-- Panel auto-refreshes when files are created or deleted (800 ms debounce)
+- Panel refreshes on workspace open, manual refresh, and after SymLynx commands
 - Panel message shows link counts and scan status
 
 **Status bar**

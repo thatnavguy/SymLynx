@@ -116,7 +116,6 @@ export class SymlinkTreeProvider implements vscode.TreeDataProvider<LinkItem> {
             this.loading = false;
             this.loaded = true;
             this.fireStats();
-            this._onChange.fire();
         }
 
         if (this.loading) {

@@ -36,17 +36,6 @@ export function activate(context: vscode.ExtensionContext): void {
         statusBar.show();
     }, null, context.subscriptions);
 
-    // ── File watcher — debounced refresh ────────────────────────────────────
-    let debounce: ReturnType<typeof setTimeout> | undefined;
-    const watcher = vscode.workspace.createFileSystemWatcher('**/*');
-    const scheduleRefresh = () => {
-        if (debounce) { clearTimeout(debounce); }
-        debounce = setTimeout(() => provider.addOrRefresh(), 800);
-    };
-    watcher.onDidCreate(scheduleRefresh, null, context.subscriptions);
-    watcher.onDidDelete(scheduleRefresh, null, context.subscriptions);
-    context.subscriptions.push(watcher);
-
     // ── Commands ────────────────────────────────────────────────────────────
     context.subscriptions.push(
         vscode.commands.registerCommand('symlynx.createSymlinkHere', async (uri?: vscode.Uri) => {

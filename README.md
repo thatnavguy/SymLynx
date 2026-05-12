@@ -44,7 +44,7 @@ Use **Export / Import** to snapshot or replicate this link layout across machine
 ## Features
 
 ### Symbolic Links panel
-A dedicated panel in the Explorer sidebar lists every symlink and hard link found in your workspace. It updates automatically as files change.
+A dedicated panel in the Explorer sidebar lists every symlink and hard link found in your workspace. The panel scans on workspace open and refreshes after any SymLynx command or a manual refresh.
 
 - **Symlinks** — shown with a blue arrow icon (`→ target`)
 - **Hard links** — shown with an orange link icon (`⇒ original`)
